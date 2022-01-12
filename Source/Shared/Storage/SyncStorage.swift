@@ -49,6 +49,12 @@ extension SyncStorage: StorageAware {
       try innerStorage.setObject(object, forKey: key, expiry: expiry)
     }
   }
+    
+  public func existsObject(forKey key: Key) -> Bool {
+    serialQueue.sync {
+      return innerStorage.existsObject(forKey: key)
+    }
+  }
 
   public func removeAll() throws {
     try serialQueue.sync {

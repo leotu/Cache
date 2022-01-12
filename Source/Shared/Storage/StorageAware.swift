@@ -71,14 +71,14 @@ public extension StorageAware {
     return try entry(forKey: key).object
   }
 
-  func existsObject(forKey key: Key) throws -> Bool {
-    do {
-      let _: Value = try object(forKey: key)
-      return true
-    } catch {
-      return false
-    }
-  }
+//  func existsObject(forKey key: Key) throws -> Bool {
+//    do {
+//      let _: Value = try object(forKey: key)
+//      return true
+//    } catch {
+//      return false
+//    }
+//  }
 
   func isExpiredObject(forKey key: Key) throws -> Bool {
     do {

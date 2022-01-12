@@ -65,6 +65,12 @@ extension AsyncStorage {
       }
     }
   }
+    
+  public func existsObject(forKey key: Key) -> Bool {
+    serialQueue.sync {
+      return innerStorage.existsObject(forKey: key)
+    }
+  }
 
   public func removeAll(completion: @escaping (Result<(), Error>) -> Void) {
     serialQueue.async { [weak self] in

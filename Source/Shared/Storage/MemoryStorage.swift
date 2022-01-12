@@ -44,6 +44,10 @@ extension MemoryStorage {
     cache.setObject(capsule, forKey: WrappedKey(key))
     keys.insert(key)
   }
+    
+  public func existsObject(forKey key: Key) -> Bool {
+    return cache.object(forKey: WrappedKey(key)) != nil
+  }
 
   public func removeAll() {
     cache.removeAllObjects()

@@ -52,6 +52,10 @@ extension HybridStorage: StorageAware {
     notifyStorageObservers(about: .remove(key: key))
   }
 
+  public func existsObject(forKey key: Key) -> Bool {
+    return memoryStorage.existsObject(forKey: key) || diskStorage.existsObject(forKey: key)
+  }
+    
   public func setObject(_ object: Value, forKey key: Key, expiry: Expiry? = nil) throws {
     var keyChange: KeyChange<Value>?
 
